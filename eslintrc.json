@@ -1,19 +1,15 @@
 {
-    "parser":"@typescript-eslint/parser",
-    "extends":[
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended"
-    ],
+    "parser": "babel-eslint",
+    "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaVersion": "2015",
         "sourceType": "module"
     },
-    "rules":{
+    "rules": {
         "eqeqeq": ["error", "always"],
         "no-empty-function": "error",
         "no-implicit-coercion": "warn",
         "@typescript-eslint/no-explicit-any": "warn",
-        "@typescript-eslint/no-duplicate-enum-values":"warn"
+        "@typescript-eslint/no-duplicate-enum-values": "warn"
     }
-
 }
