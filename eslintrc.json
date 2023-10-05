@@ -7,6 +7,9 @@
     },
     "rules": {
         "eqeqeq": ["error", "always"],
+        "import/extensions": "ignorePackages",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
         "no-empty-function": "error",
         "no-implicit-coercion": "warn",
         "@typescript-eslint/no-explicit-any": "warn",
