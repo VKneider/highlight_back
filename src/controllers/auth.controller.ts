@@ -1,4 +1,4 @@
-import UserCollection, {IUser} from "../models/user";
+import UserCollection, {IUser} from "../models/user.js";
 import {Request,Response} from "express";
 
 
