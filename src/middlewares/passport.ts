@@ -1,5 +1,5 @@
 import { Strategy, ExtractJwt, StrategyOptions } from "passport-jwt";
-import userCollection from "../models/user";
+import userCollection from "../models/user.js";
 import "dotenv/config"
 
 const opts: StrategyOptions = {

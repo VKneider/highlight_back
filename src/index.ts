@@ -1,4 +1,14 @@
 import app from "./app.js";
+import connection from "./database.js";
+
+connection.once('open', () => {
+    console.log('Mongodb Connection stablished');
+  });
+  
+connection.on('error', (err) => {
+    console.log('Mongodb connection error:', err);
+    process.exit();
+});
 
 app.listen(app.get('port'));
 

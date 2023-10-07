@@ -83,6 +83,6 @@ userSchema.methods.createToken = async function(user:IUser):Promise<string>{
 
   
 
-const userCollection = model<IUser>("UserCollection", userSchema);
+const userCollection = model<IUser>("User", userSchema);
 
 export default userCollection;

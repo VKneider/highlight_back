@@ -18,19 +18,20 @@ export interface INote extends Document {
     trashed?: boolean;
     color?: string;
   }) => Promise<Boolean>;
-  deleteNote: () => Promise<Boolean>;
   };
 
 const noteSchema = new Schema({
   title: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    default: "Untitled"
   },
   description:{
     type:String,
     required:true,
-    trim:true
+    default:""
+    
   },
   userId: {
     type: Schema.Types.ObjectId,
@@ -40,7 +41,8 @@ const noteSchema = new Schema({
   folderId: {
     type: Schema.Types.ObjectId,
     ref: "Folder",
-    required: true
+    required: true,
+    default:null
   },
   createdAt: {
     type: Date,
@@ -79,7 +81,7 @@ noteSchema.methods.updateNote = async function(
   if(noteData.title) note.title = noteData.title;
   if(noteData.description) note.description = noteData.description;
 
-  if(noteData.title || noteData.description) note.updatedAt = new Date();
+  if(noteData.title || noteData.description) note.updatedAt = Date.now();
 
   if(noteData.starred) note.starred = noteData.starred;
   if(noteData.trashed) note.trashed = noteData.trashed;
