@@ -15,8 +15,14 @@ userRouter.get(
 
 userRouter.put(
     "/update",
-    validationYup(schemas.changeUserDataSchema),
+    validationYup(schemas.updateUserDataSchema),
     UserController.updateUserData
+);
+
+userRouter.delete(
+    "/delete",
+    validationYup(schemas.idSchema),
+    UserController.deleteUser
 );
 
 

@@ -11,6 +11,8 @@ export interface IUser extends Document {
   updateData: (userData: {
     username?: string;
     password?: string;
+    id?:string;
+    
   }) => Promise<Boolean>;
   createToken:(user:IUser)=>Promise<string>;
 };
@@ -67,6 +69,7 @@ userSchema.methods.updateData = async function(
   }
 
   if(userData.username) user.username = userData.username;
+
 
   await user.save();
 
