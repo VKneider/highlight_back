@@ -6,7 +6,11 @@ export default class UserController {
 
    static deleteUser = async (req:Request,res:Response)=>{
         const {id} = req.body;
-        const deletedUser = await UserCollection.findByIdAndDelete(id);
+        const user = await UserCollection.findById(id);
+        if(!user) return res.status(404).json({message:"User not found"});
+
+        await user.deleteOne();
+        
         await NoteCollection.deleteMany({user:id});
         //lo mismo pero para carpetas
         res.json({message:"User deleted"});
@@ -17,7 +21,7 @@ export default class UserController {
           const {id} = req.body;
           const user = await UserCollection.findById(id);
           if(user){
-              res.json(user);
+              res.json({message:"User found",user:{username:user.username,email:user.email}});
           }else{
                 res.json({message:"User not found"});
           }
@@ -25,13 +29,13 @@ export default class UserController {
 
     static updateUserData = async (req:Request,res:Response)=>{
         
-        const {email,username,password} = req.body;
+        const {id} = req.body;
 
-        const user = new UserCollection({
-            email,
-            username,
-            password
-        }); 
+        const user = await UserCollection.findById(id);
+        if(!user) return res.status(404).json({message:"User not found"});
+
+        await user.updateData(req.body);
+        return res.json({message:"User updated"});
     }
 
 }
