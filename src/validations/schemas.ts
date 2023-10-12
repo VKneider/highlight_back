@@ -11,7 +11,7 @@ const registerSchema = yup.object().shape({
     username: yup.string().min(6).max(10).required("Username is required"),
 });
 
-const changeUserDataSchema = yup.object().shape({
+const updateUserDataSchema = yup.object().shape({
     password: yup.string(),
     username: yup.string().min(6).max(10),
     email: yup.string().email(),
@@ -24,7 +24,7 @@ const idSchema = yup.object().shape({
 const schemas = {
     loginSchema,
     registerSchema,
-    changeUserDataSchema,
+    updateUserDataSchema,
     idSchema
 }
 
