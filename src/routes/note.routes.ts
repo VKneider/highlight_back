@@ -17,3 +17,5 @@ noteRouter.post('/',validationYup(schemas.createNoteSchema),noteController.creat
 noteRouter.put('/',validationYup(schemas.updateNoteSchema),noteController.updateNote);
 
 noteRouter.delete('/',validationYup(schemas.deleteNoteSchema),noteController.deleteNote);
+
+export default noteRouter;

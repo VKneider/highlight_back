@@ -29,7 +29,7 @@ const byFolderIdSchema = yup.object().shape({
 const createNoteSchema = yup.object().shape({
     title: yup.string().required("Title is required"),
     description: yup.string().required("description is required"),
-    folderId: yup.string(),
+    folderId: yup.string().nullable(),
     userId: yup.string().required("User is required"),
 });
 

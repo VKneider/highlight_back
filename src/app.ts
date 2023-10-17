@@ -10,7 +10,7 @@ import passportMiddleware from './middlewares/passport.js';
 
 import userRouter from './routes/user.routes.js';
 import authRouter from './routes/auth.routes.js';
-
+import noteRouter from './routes/note.routes.js';
 
 const app = express();
 
@@ -25,6 +25,7 @@ passport.use(passportMiddleware)
 
 app.use('/auth', authRouter)
 app.use('/user', userRouter)
+app.use('/note', noteRouter)
 
 
 export default app;

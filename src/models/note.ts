@@ -41,7 +41,7 @@ const noteSchema = new Schema({
   folderId: {
     type: Schema.Types.ObjectId,
     ref: "Folder",
-    required: true,
+    required: false,
     default:null
   },
   createdAt: {

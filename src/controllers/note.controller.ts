@@ -15,7 +15,7 @@ export default class noteController{
 
         static getNotesByUserId = async (req:Request,res:Response)=>{
             try {
-             const notes = await NoteCollection.find({user:req.body.userId});
+             const notes = await NoteCollection.find({userId:req.body.userId});
 
              if(!notes) return res.status(404).json({message:"Notes not found", notes:[]});
 
@@ -27,12 +27,18 @@ export default class noteController{
 
 
         static createNote = async (req:Request,res:Response)=>{
-            const {title,content,folder,user} = req.body;
-            const note = new NoteCollection({
-                title,
-                folder,
-                user
-            });
+            const {title,description,folderId,userId} = req.body;
+
+            let obj = {
+                title:title,
+                folderId:folderId,
+                userId:userId,
+                description:description
+            }
+            console.log(obj)
+
+
+            const note = new NoteCollection(obj);
             await note.save();
             res.json({message:"Note created"});
         }
