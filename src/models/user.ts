@@ -78,7 +78,7 @@ userSchema.methods.updateData = async function(
 
 userSchema.methods.createToken = async function(user:IUser):Promise<string>{
   return jwt.sign(
-    {id:user.id, email:user.email},
+    {id:user.id},
      process.env.JWT_SECRET || "secret",
     {expiresIn: 60*60*24*7}
   )
