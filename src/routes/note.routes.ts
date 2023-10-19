@@ -8,9 +8,9 @@ let noteRouter = Router();
 noteRouter.use(passport.authenticate("jwt", { session: false }));
 //este router va a comenzar con "/note"
 
-noteRouter.get('/', validationYup(schemas.idSchema), noteController.getNotesByUserId);
+noteRouter.post('/getAll', validationYup(schemas.idSchema), noteController.getNotesByUserId);
 
-noteRouter.get('/byFolderId',validationYup(schemas.byFolderIdSchema),noteController.getNotesByFolderId);
+noteRouter.post('/getByFolderId',validationYup(schemas.byFolderIdSchema),noteController.getNotesByFolderId);
 
 noteRouter.post('/',validationYup(schemas.createNoteSchema),noteController.createNote);
 

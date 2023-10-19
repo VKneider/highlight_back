@@ -7,8 +7,8 @@ let userRouter = Router();
 
 userRouter.use(passport.authenticate("jwt", { session: false }));
 
-userRouter.get(
-    "/",
+userRouter.post(
+    "/getById",
     validationYup(schemas.idSchema),
     UserController.getUserData
 );
