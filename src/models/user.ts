@@ -63,16 +63,11 @@ userSchema.methods.updateData = async function(
   const user = this;
 
   if (userData.password) {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(userData.password, salt);
-    userData.password = hash;
+    user.password = userData.password;
   }
 
   if(userData.username) user.username = userData.username;
-
-
   await user.save();
-
   return true;
 }
 
