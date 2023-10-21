@@ -12,9 +12,11 @@ const registerSchema = yup.object().shape({
 });
 
 const updateUserDataSchema = yup.object().shape({
-    password: yup.string(),
+    newPassword: yup.string(),
     username: yup.string().min(6).max(10),
     email: yup.string().email(),
+    oldPassword: yup.string(),
+    userId: yup.string().required("User id is required"),
 });
 
 const idSchema = yup.object().shape({

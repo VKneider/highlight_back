@@ -63,7 +63,8 @@ userSchema.methods.updateData = async function(
   const user = this;
 
   if (userData.newPassword) {
-    if(user.comparePassword(userData.oldPassword)) return false;
+    console.log(await user.comparePassword(userData.oldPassword))
+    if(!await user.comparePassword(userData.oldPassword)) return false;
     user.password = userData.newPassword;
   }
 

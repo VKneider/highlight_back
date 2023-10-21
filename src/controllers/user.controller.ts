@@ -35,7 +35,7 @@ export default class UserController {
         const user = await UserCollection.findById(id);
         if(!user) return res.status(404).json({message:"User not found"});
 
-       if(! await user.updateData(req.body)) return res.status(400).json({message:"Error updating user"});
+       if(!await user.updateData(req.body)) return res.status(400).json({message:"Error updating user"});
         return res.status(200).json({message:"User updated"});
     }
 
