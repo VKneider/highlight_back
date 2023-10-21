@@ -18,9 +18,9 @@
     "tsc-watch": "^6.0.4",
     "typescript": "^5.2.2"
   },
-  "name": "taskiller_back",
+  "name": "highlight_back",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "dependencies": {
     "acorn": "^8.10.0",
     "acorn-jsx": "^5.3.2",
@@ -175,14 +175,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VKneider/taskiller_back.git"
+    "url": "git+https://github.com/VKneider/highlight_back.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VKneider/taskiller_back/issues"
+    "url": "https://github.com/VKneider/highlight_back/issues"
   },
-  "homepage": "https://github.com/VKneider/taskiller_back#readme",
+  "homepage": "https://github.com/VKneider/highlight_back#readme",
   "description": ""
 }
