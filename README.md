@@ -102,7 +102,10 @@ This is an example of how to list things you need to use the software and how to
    DB_USER = 'USER';
    DB_PASS = 'PASS';
    ```
-
+4. Compile and Run Project
+   ```js
+   npm run dev
+   ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <br>
