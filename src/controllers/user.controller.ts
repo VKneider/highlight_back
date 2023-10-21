@@ -19,7 +19,7 @@ export default class UserController {
    }
 
     static getUserData = async (req:Request,res:Response)=>{
-          const {id} = req.body;
+          const {userId:id} = req.body;
           const user = await UserCollection.findById(id);
           if(user){
               res.json({message:"User found",user:{username:user.username,email:user.email}});
