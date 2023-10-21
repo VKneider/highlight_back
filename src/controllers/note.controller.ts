@@ -35,8 +35,6 @@ export default class noteController{
                 userId:userId,
                 description:description
             }
-            console.log(obj)
-
 
             const note = new NoteCollection(obj);
             await note.save();

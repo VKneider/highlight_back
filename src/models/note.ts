@@ -74,6 +74,7 @@ noteSchema.methods.updateNote = async function(
     starred?: boolean;
     trashed?: boolean;
     color?: string;
+    folderId?:string;
   }
 ): Promise<Boolean> {
   const note = this;
@@ -86,6 +87,8 @@ noteSchema.methods.updateNote = async function(
   if(noteData.starred) note.starred = noteData.starred;
   if(noteData.trashed) note.trashed = noteData.trashed;
   if(noteData.color) note.color = noteData.color;
+
+  if(noteData.folderId) note.folderId = noteData.folderId;
 
   await note.save();
 
