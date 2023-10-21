@@ -30,13 +30,15 @@ export default class UserController {
 
     static updateUserData = async (req:Request,res:Response)=>{
         
-        const {id} = req.body;
+        const {userId:id} = req.body;
 
         const user = await UserCollection.findById(id);
         if(!user) return res.status(404).json({message:"User not found"});
 
-        await user.updateData(req.body);
-        return res.json({message:"User updated"});
+       if(! await user.updateData(req.body)) return res.status(400).json({message:"Error updating user"});
+        return res.status(200).json({message:"User updated"});
     }
+
+   
 
 }

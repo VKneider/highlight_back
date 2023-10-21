@@ -58,12 +58,13 @@ userSchema.methods.comparePassword = async function(
 };
 
 userSchema.methods.updateData = async function(
-  userData: { username?: string; password?: string }
+  userData: { username?: string; oldPassword?: string; newPassword?: string;  }
 ): Promise<Boolean> {
   const user = this;
 
-  if (userData.password) {
-    user.password = userData.password;
+  if (userData.newPassword) {
+    if(user.comparePassword(userData.oldPassword)) return false;
+    user.password = userData.newPassword;
   }
 
   if(userData.username) user.username = userData.username;
