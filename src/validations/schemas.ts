@@ -48,6 +48,24 @@ const deleteNoteSchema = yup.object().shape({
     userId: yup.string().required("User id is required"),
 });
 
+const createFolderSchema = yup.object().shape({
+    name: yup.string().required("Folder name is required"),
+    userId: yup.string().required("User id is required"),
+});
+
+const updateFolderSchema = yup.object().shape({
+    folderId: yup.string().required("Folder id is required"),
+    name: yup.string(),
+    userId: yup.string()
+});
+
+const deleteFolderSchema = yup.object().shape({
+    folderId: yup.string().required("Folder id is required"),
+    userId: yup.string().required("User id is required"),
+});
+
+
+
 const schemas = {
     loginSchema,
     registerSchema,
@@ -56,7 +74,10 @@ const schemas = {
     byFolderIdSchema,
     createNoteSchema,
     updateNoteSchema,
-    deleteNoteSchema
+    deleteNoteSchema,
+    createFolderSchema,
+    updateFolderSchema,
+    deleteFolderSchema
 
 }
 
