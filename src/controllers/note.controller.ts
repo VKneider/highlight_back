@@ -40,7 +40,7 @@ export default class noteController{
 
             const note = new NoteCollection(obj);
             await note.save();
-            res.json({message:"Note created"});
+            res.status(200).json({message:"Note created"});
         }
 
 
@@ -50,7 +50,7 @@ export default class noteController{
                 if(!note) return res.status(404).json({message:"Note not found"});
                 await note?.updateNote(req.body);
 
-                return note;
+                return res.status(200).json({message:"Note updated"});
 
             } catch (error:any) {
                 res.status(400).json({message:error.message});
@@ -62,13 +62,17 @@ export default class noteController{
         
 
         static deleteNote = async (req:Request,res:Response)=>{
-            const {noteId} = req.body;
+            try {
+                const {noteId} = req.body;
 
             const note = await NoteCollection.findById(noteId);
             if(!note) return res.status(404).json({message:"Note not found"});
 
             await note.deleteOne();
 
-            res.json({message:"Note deleted"});
+            res.status(200).json({message:"Note deleted"});
+            } catch (error:any) {
+                res.status(500).json({message:error.message});
+            }
         }
 }
