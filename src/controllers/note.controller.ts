@@ -59,6 +59,7 @@ export default class noteController{
         }
 
         
+        
 
         static deleteNote = async (req:Request,res:Response)=>{
             const {noteId} = req.body;
