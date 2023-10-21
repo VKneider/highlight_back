@@ -5,7 +5,7 @@ export default class noteController{
     
         static getNotesByFolderId = async (req:Request,res:Response)=>{
            try {
-            const notes = await NoteCollection.find({folder:req.body.folderId});
+            const notes = await NoteCollection.find({folderId:req.body.folderId});
             res.status(200).json({message:"Notes found for requested folder:",notes:notes});
            } catch (error:any) {
             res.status(500).json({message:error.message,notes:[]});
